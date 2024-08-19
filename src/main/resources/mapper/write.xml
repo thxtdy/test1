@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tenco.blog.repository.interfaces.WriteRepository">
+	
+	<insert id="insert">
+		insert into write_tb(author, title, content)
+		values(#{author}, #{title}, #{content})
+	</insert>
+	
+	<update id="updateById">
+		update write_tb set author = #{author},
+							title = #{title},
+							content = #{content}
+							where id = #{id}
+	</update>
+	
+	<delete id="deleteById">
+		delete from write_tb where id = #{id}
+	</delete>
+    
+        <select id="getAllPosts" parameterType="map" resultType="com.tenco.blog.dto.WriteDTO">
+        SELECT * FROM write_tb
+        ORDER BY id DESC
+
+    </select>
+
+    <!-- 총 게시글 수 조회 쿼리 -->
+    <select id="countPosts" resultType="int">
+        SELECT COUNT(*) FROM write_tb
+    </select>
+    
+    <select id="getPostById" resultType="com.tenco.blog.dto.WriteDTO">
+    	select * from write_tb where id = #{id}
+    </select>
+    
+</mapper>
