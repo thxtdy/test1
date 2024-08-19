@@ -13,13 +13,13 @@
         <div class="card-body">
             <form action="/blog/write" method="post">
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Enter author" name="author">
+                    <input type="text" class="form-control" placeholder="Enter author" name="author"  required="required">
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Enter title" name="title">
+                    <input type="text" class="form-control" placeholder="Enter title" name="title" required="required">
                 </div>
                 <div class="mb-3">
-                    <textarea class="form-control" rows="5" name="content"></textarea>
+                    <textarea class="form-control" rows="5" name="content" required="required"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary form-control">글쓰기완료</button>
             </form>
